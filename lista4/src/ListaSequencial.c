@@ -145,11 +145,17 @@ int lista_tem_espaco(Lista* li, int n){
 		return 0;
 	return 1;
 }
+/*QUESTÃO 2 */
+float soma_precos(Lista* li){
+	if(li == NULL)
+		return 0;
+	int sum=0;
+	for(int i=0; i < li->qtd; i++)
+		sum += li->dados->preco;
+	return sum;
+};
 
 
-
-
-float soma_precos(Lista* li);
 int busca_por_nome(Lista* li, char *nome, struct produto *p);
 int insere_lista_decrescente(Lista* li, struct produto p);
 int remove_mais_caro(Lista* li, struct produto *removido);
