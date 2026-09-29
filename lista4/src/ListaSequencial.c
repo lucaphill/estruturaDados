@@ -135,7 +135,20 @@ int lista_vazia(Lista* li) {
 // ------ A PARTIR DAQUI COMEÇA AS QUESTÕES DA ATIVIDADE 4 ------
 // para tal, mudaremos a variável 'aluno' para 'produto' com sua própria definição bonitinha no .h
 
-int lista_tem_espaco(Lista* li, int n);
+/*QUESTÃO 1*/
+int lista_tem_espaco(Lista* li, int n){
+	if(li == NULL)
+		return 0;
+	if(li->qtd == MAX)
+		return 0;
+	if(li->qtd + n > MAX)
+		return 0;
+	return 1;
+}
+
+
+
+
 float soma_precos(Lista* li);
 int busca_por_nome(Lista* li, char *nome, struct produto *p);
 int insere_lista_decrescente(Lista* li, struct produto p);
