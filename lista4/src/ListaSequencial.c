@@ -217,8 +217,19 @@ int conta_faixa_preco(Lista* li, float min, float max){
 }
 /*QUESTÃO 7*/
 int remove_abaixo_de(Lista* li, float precoMinimo){
-
-	return 1;
+	if(li == NULL)
+		return 0;
+	if(li->qtd == 0)
+		return 0;
+	int i, k;
+	k = li->qtd;
+	for(i=0; i < li->qtd; i++){
+		if(li->dados[i].preco < precoMinimo){
+			remove_lista(li, li->dados[i].codigo);
+			i--;
+		}
+	}
+	return k-li->qtd;
 }
 
 
