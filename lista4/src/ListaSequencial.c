@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "ListaSequencial.h"
+#include <string.h>
 
 struct lista {
     int qtd;
@@ -145,7 +146,7 @@ int lista_tem_espaco(Lista* li, int n){
 		return 0;
 	return 1;
 }
-/*QUESTÃO 2 */
+/*QUESTÃO 2*/
 float soma_precos(Lista* li){
 	if(li == NULL)
 		return 0;
@@ -154,10 +155,37 @@ float soma_precos(Lista* li){
 		sum += li->dados->preco;
 	return sum;
 };
+/*QUESTÃO 3*/
+int busca_por_nome(Lista* li, char *nome, struct produto *p){
+	if(li == NULL)
+		return 0;
+	int i=0;
+	while(i < li->qtd && !(strcmp(li->dados->nome, nome)))
+		i++;
+	if(i == li->qtd)
+		return 0;
+	*p = li->dados[i];
+	return 1;
+};
+/*QUESTÃO 4*/
+int insere_lista_decrescente(Lista* li, struct produto p){
+	if(li == NULL)
+		return 0;
+	if(li->qtd == MAX)
+		return 0;
+	int k, i=0;
+	while(i < li->qtd && p.preco < li->dados[i].preco)
+		i++;
+	for(k=li->qtd-1; k >= i; k--)
+		li->dados[k+1] = li->dados[k];
+	li->dados[i] = p;
+	li->qtd++;
+	return 1;
+}
 
 
-int busca_por_nome(Lista* li, char *nome, struct produto *p);
-int insere_lista_decrescente(Lista* li, struct produto p);
+
+
 int remove_mais_caro(Lista* li, struct produto *removido);
 int conta_faixa_preco(Lista* li, float min, float max);
 int remove_abaixo_de(Lista* li, float precoMinimo);
