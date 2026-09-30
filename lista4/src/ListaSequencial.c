@@ -182,11 +182,30 @@ int insere_lista_decrescente(Lista* li, struct produto p){
 	li->qtd++;
 	return 1;
 }
+/*QUESTÃO 5*/
+int remove_mais_caro(Lista* li, struct produto *removido){
+	if(li == NULL)
+		return 0;
+	if(li->qtd == 0)
+		return 0;
+	struct produto caro;
+	caro.preco = 0;
+	int i, k=0;
+	for(i=0; i < li->qtd; i++){
+		if(caro.preco < li->dados[i].preco){
+			caro.preco = li->dados[i].preco;
+			k = i;
+		}
+	}
+	*removido = li->dados[k];
+	li->dados[k] = li->dados[li->qtd-1];
+	li->qtd--;
+	return 0;
+}
 
 
 
 
-int remove_mais_caro(Lista* li, struct produto *removido);
 int conta_faixa_preco(Lista* li, float min, float max);
 int remove_abaixo_de(Lista* li, float precoMinimo);
 int mescla_listas(Lista* destino, Lista* origem);
