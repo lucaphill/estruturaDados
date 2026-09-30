@@ -154,7 +154,7 @@ float soma_precos(Lista* li){
 	for(int i=0; i < li->qtd; i++)
 		sum += li->dados->preco;
 	return sum;
-};
+}
 /*QUESTÃO 3*/
 int busca_por_nome(Lista* li, char *nome, struct produto *p){
 	if(li == NULL)
@@ -166,7 +166,7 @@ int busca_por_nome(Lista* li, char *nome, struct produto *p){
 		return 0;
 	*p = li->dados[i];
 	return 1;
-};
+}
 /*QUESTÃO 4*/
 int insere_lista_decrescente(Lista* li, struct produto p){
 	if(li == NULL)
@@ -202,10 +202,25 @@ int remove_mais_caro(Lista* li, struct produto *removido){
 	li->qtd--;
 	return 0;
 }
+/*QUESTÃO 6*/
+int conta_faixa_preco(Lista* li, float min, float max){
+	if(li == NULL)
+		return 0;
+	if(li->qtd == 0)
+		return 0;
+	int i, cont=0;
+	for(i=0; i < li->qtd; i++){
+		if(li->dados[i].preco >= min && li->dados[i].preco <= max)
+			cont++;
+	}
+	return cont;
+}
+/*QUESTÃO 7*/
+int remove_abaixo_de(Lista* li, float precoMinimo){
+
+	return 1;
+}
 
 
 
-
-int conta_faixa_preco(Lista* li, float min, float max);
-int remove_abaixo_de(Lista* li, float precoMinimo);
 int mescla_listas(Lista* destino, Lista* origem);
