@@ -72,32 +72,48 @@ include CMakeFiles/l4_run.dir/flags.make
 CMakeFiles/l4_run.dir/codegen:
 .PHONY : CMakeFiles/l4_run.dir/codegen
 
-CMakeFiles/l4_run.dir/src/texte.c.o: CMakeFiles/l4_run.dir/flags.make
-CMakeFiles/l4_run.dir/src/texte.c.o: /home/luca/Documentos/estruturaDados/lista4/src/texte.c
-CMakeFiles/l4_run.dir/src/texte.c.o: CMakeFiles/l4_run.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/luca/Documentos/estruturaDados/lista4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/l4_run.dir/src/texte.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/l4_run.dir/src/texte.c.o -MF CMakeFiles/l4_run.dir/src/texte.c.o.d -o CMakeFiles/l4_run.dir/src/texte.c.o -c /home/luca/Documentos/estruturaDados/lista4/src/texte.c
+CMakeFiles/l4_run.dir/src/main.c.o: CMakeFiles/l4_run.dir/flags.make
+CMakeFiles/l4_run.dir/src/main.c.o: /home/luca/Documentos/estruturaDados/lista4/src/main.c
+CMakeFiles/l4_run.dir/src/main.c.o: CMakeFiles/l4_run.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/luca/Documentos/estruturaDados/lista4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/l4_run.dir/src/main.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/l4_run.dir/src/main.c.o -MF CMakeFiles/l4_run.dir/src/main.c.o.d -o CMakeFiles/l4_run.dir/src/main.c.o -c /home/luca/Documentos/estruturaDados/lista4/src/main.c
 
-CMakeFiles/l4_run.dir/src/texte.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/l4_run.dir/src/texte.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/luca/Documentos/estruturaDados/lista4/src/texte.c > CMakeFiles/l4_run.dir/src/texte.c.i
+CMakeFiles/l4_run.dir/src/main.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/l4_run.dir/src/main.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/luca/Documentos/estruturaDados/lista4/src/main.c > CMakeFiles/l4_run.dir/src/main.c.i
 
-CMakeFiles/l4_run.dir/src/texte.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/l4_run.dir/src/texte.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/luca/Documentos/estruturaDados/lista4/src/texte.c -o CMakeFiles/l4_run.dir/src/texte.c.s
+CMakeFiles/l4_run.dir/src/main.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/l4_run.dir/src/main.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/luca/Documentos/estruturaDados/lista4/src/main.c -o CMakeFiles/l4_run.dir/src/main.c.s
+
+CMakeFiles/l4_run.dir/src/ListaSequencial.c.o: CMakeFiles/l4_run.dir/flags.make
+CMakeFiles/l4_run.dir/src/ListaSequencial.c.o: /home/luca/Documentos/estruturaDados/lista4/src/ListaSequencial.c
+CMakeFiles/l4_run.dir/src/ListaSequencial.c.o: CMakeFiles/l4_run.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/luca/Documentos/estruturaDados/lista4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/l4_run.dir/src/ListaSequencial.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/l4_run.dir/src/ListaSequencial.c.o -MF CMakeFiles/l4_run.dir/src/ListaSequencial.c.o.d -o CMakeFiles/l4_run.dir/src/ListaSequencial.c.o -c /home/luca/Documentos/estruturaDados/lista4/src/ListaSequencial.c
+
+CMakeFiles/l4_run.dir/src/ListaSequencial.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/l4_run.dir/src/ListaSequencial.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/luca/Documentos/estruturaDados/lista4/src/ListaSequencial.c > CMakeFiles/l4_run.dir/src/ListaSequencial.c.i
+
+CMakeFiles/l4_run.dir/src/ListaSequencial.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/l4_run.dir/src/ListaSequencial.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/luca/Documentos/estruturaDados/lista4/src/ListaSequencial.c -o CMakeFiles/l4_run.dir/src/ListaSequencial.c.s
 
 # Object files for target l4_run
 l4_run_OBJECTS = \
-"CMakeFiles/l4_run.dir/src/texte.c.o"
+"CMakeFiles/l4_run.dir/src/main.c.o" \
+"CMakeFiles/l4_run.dir/src/ListaSequencial.c.o"
 
 # External object files for target l4_run
 l4_run_EXTERNAL_OBJECTS =
 
-/home/luca/Documentos/estruturaDados/lista4/l4_run: CMakeFiles/l4_run.dir/src/texte.c.o
+/home/luca/Documentos/estruturaDados/lista4/l4_run: CMakeFiles/l4_run.dir/src/main.c.o
+/home/luca/Documentos/estruturaDados/lista4/l4_run: CMakeFiles/l4_run.dir/src/ListaSequencial.c.o
 /home/luca/Documentos/estruturaDados/lista4/l4_run: CMakeFiles/l4_run.dir/build.make
 /home/luca/Documentos/estruturaDados/lista4/l4_run: CMakeFiles/l4_run.dir/compiler_depend.ts
 /home/luca/Documentos/estruturaDados/lista4/l4_run: CMakeFiles/l4_run.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/luca/Documentos/estruturaDados/lista4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking C executable /home/luca/Documentos/estruturaDados/lista4/l4_run"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/luca/Documentos/estruturaDados/lista4/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable /home/luca/Documentos/estruturaDados/lista4/l4_run"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/l4_run.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

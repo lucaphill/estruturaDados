@@ -129,29 +129,53 @@ l4_run/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/l4_run.dir/build.make CMakeFiles/l4_run.dir/build
 .PHONY : l4_run/fast
 
-src/texte.o: src/texte.c.o
-.PHONY : src/texte.o
+src/ListaSequencial.o: src/ListaSequencial.c.o
+.PHONY : src/ListaSequencial.o
 
 # target to build an object file
-src/texte.c.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/l4_run.dir/build.make CMakeFiles/l4_run.dir/src/texte.c.o
-.PHONY : src/texte.c.o
+src/ListaSequencial.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/l4_run.dir/build.make CMakeFiles/l4_run.dir/src/ListaSequencial.c.o
+.PHONY : src/ListaSequencial.c.o
 
-src/texte.i: src/texte.c.i
-.PHONY : src/texte.i
+src/ListaSequencial.i: src/ListaSequencial.c.i
+.PHONY : src/ListaSequencial.i
 
 # target to preprocess a source file
-src/texte.c.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/l4_run.dir/build.make CMakeFiles/l4_run.dir/src/texte.c.i
-.PHONY : src/texte.c.i
+src/ListaSequencial.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/l4_run.dir/build.make CMakeFiles/l4_run.dir/src/ListaSequencial.c.i
+.PHONY : src/ListaSequencial.c.i
 
-src/texte.s: src/texte.c.s
-.PHONY : src/texte.s
+src/ListaSequencial.s: src/ListaSequencial.c.s
+.PHONY : src/ListaSequencial.s
 
 # target to generate assembly for a file
-src/texte.c.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/l4_run.dir/build.make CMakeFiles/l4_run.dir/src/texte.c.s
-.PHONY : src/texte.c.s
+src/ListaSequencial.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/l4_run.dir/build.make CMakeFiles/l4_run.dir/src/ListaSequencial.c.s
+.PHONY : src/ListaSequencial.c.s
+
+src/main.o: src/main.c.o
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.c.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/l4_run.dir/build.make CMakeFiles/l4_run.dir/src/main.c.o
+.PHONY : src/main.c.o
+
+src/main.i: src/main.c.i
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/l4_run.dir/build.make CMakeFiles/l4_run.dir/src/main.c.i
+.PHONY : src/main.c.i
+
+src/main.s: src/main.c.s
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/l4_run.dir/build.make CMakeFiles/l4_run.dir/src/main.c.s
+.PHONY : src/main.c.s
 
 # Help Target
 help:
@@ -162,9 +186,12 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... l4_run"
-	@echo "... src/texte.o"
-	@echo "... src/texte.i"
-	@echo "... src/texte.s"
+	@echo "... src/ListaSequencial.o"
+	@echo "... src/ListaSequencial.i"
+	@echo "... src/ListaSequencial.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 .PHONY : help
 
 

@@ -8,7 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/luca/Documentos/estruturaDados/lista4/src/texte.c" "CMakeFiles/l4_run.dir/src/texte.c.o" "gcc" "CMakeFiles/l4_run.dir/src/texte.c.o.d"
+  "/home/luca/Documentos/estruturaDados/lista4/src/ListaSequencial.c" "CMakeFiles/l4_run.dir/src/ListaSequencial.c.o" "gcc" "CMakeFiles/l4_run.dir/src/ListaSequencial.c.o.d"
+  "/home/luca/Documentos/estruturaDados/lista4/src/main.c" "CMakeFiles/l4_run.dir/src/main.c.o" "gcc" "CMakeFiles/l4_run.dir/src/main.c.o.d"
   "" "/home/luca/Documentos/estruturaDados/lista4/l4_run" "gcc" "CMakeFiles/l4_run.dir/link.d"
   )
 

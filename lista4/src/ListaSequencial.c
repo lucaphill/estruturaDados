@@ -151,7 +151,7 @@ float soma_precos(Lista* li){
 		return 0;
 	int sum=0;
 	for(int i=0; i < li->qtd; i++)
-		sum += li->dados->preco;
+		sum += li->dados[i].preco;
 	return sum;
 }
 /*QUESTÃO 3*/
@@ -159,7 +159,7 @@ int busca_por_nome(Lista* li, char *nome, struct produto *p){
 	if(li == NULL)
 		return 0;
 	int i=0;
-	while(i < li->qtd && !(strcmp(li->dados->nome, nome)))
+	while(i < li->qtd && strcmp(li->dados[i].nome, nome) != 0)
 		i++;
 	if(i == li->qtd)
 		return 0;
@@ -199,7 +199,7 @@ int remove_mais_caro(Lista* li, struct produto *removido){
 	*removido = li->dados[k];
 	li->dados[k] = li->dados[li->qtd-1];
 	li->qtd--;
-	return 0;
+	return 1;
 }
 /*QUESTÃO 6*/
 int conta_faixa_preco(Lista* li, float min, float max){
@@ -239,9 +239,9 @@ int mescla_listas(Lista* destino, Lista* origem){
 	long n = origem->qtd;
 	long m = destino->qtd;
 	int cont=0;
-	struct produto* temp;
-	for(int i=0; i < n && i < MAX; i++){
-		if(busca_lista_cod(destino, origem->dados[i].codigo, temp))
+	struct produto temp;
+	for(int i=0; i < n && i < MAX-m; i++){
+		if(busca_lista_cod(destino, origem->dados[i].codigo, &temp))
 			continue;
 		destino->dados[m+cont] = origem->dados[i];
 		cont++;

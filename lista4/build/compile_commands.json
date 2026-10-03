@@ -1,8 +1,14 @@
 [
 {
   "directory": "/home/luca/Documentos/estruturaDados/lista4/build",
-  "command": "/usr/bin/cc  -I/home/luca/Documentos/estruturaDados/lista4/include -std=gnu11 -o CMakeFiles/l4_run.dir/src/texte.c.o -c /home/luca/Documentos/estruturaDados/lista4/src/texte.c",
-  "file": "/home/luca/Documentos/estruturaDados/lista4/src/texte.c",
-  "output": "CMakeFiles/l4_run.dir/src/texte.c.o"
+  "command": "/usr/bin/cc  -I/home/luca/Documentos/estruturaDados/lista4/include -std=gnu11 -o CMakeFiles/l4_run.dir/src/main.c.o -c /home/luca/Documentos/estruturaDados/lista4/src/main.c",
+  "file": "/home/luca/Documentos/estruturaDados/lista4/src/main.c",
+  "output": "CMakeFiles/l4_run.dir/src/main.c.o"
+},
+{
+  "directory": "/home/luca/Documentos/estruturaDados/lista4/build",
+  "command": "/usr/bin/cc  -I/home/luca/Documentos/estruturaDados/lista4/include -std=gnu11 -o CMakeFiles/l4_run.dir/src/ListaSequencial.c.o -c /home/luca/Documentos/estruturaDados/lista4/src/ListaSequencial.c",
+  "file": "/home/luca/Documentos/estruturaDados/lista4/src/ListaSequencial.c",
+  "output": "CMakeFiles/l4_run.dir/src/ListaSequencial.c.o"
 }
 ]

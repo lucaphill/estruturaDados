@@ -1,1 +1,1 @@
-/usr/bin/cc -Wl,--dependency-file=CMakeFiles/l4_run.dir/link.d CMakeFiles/l4_run.dir/src/texte.c.o -o /home/luca/Documentos/estruturaDados/lista4/l4_run
+/usr/bin/cc -Wl,--dependency-file=CMakeFiles/l4_run.dir/link.d CMakeFiles/l4_run.dir/src/main.c.o CMakeFiles/l4_run.dir/src/ListaSequencial.c.o -o /home/luca/Documentos/estruturaDados/lista4/l4_run
