@@ -1,4 +1,3 @@
-#include <stdio.h>
 #include <stdlib.h>
 #include "ListaSequencial.h"
 #include <string.h>
@@ -103,7 +102,7 @@ int busca_lista_pos(Lista* li, int pos, struct produto *p) {
 	return 1;
 }
 
-int busca_lista_mat(Lista* li, int cod, struct produto *p) {
+int busca_lista_cod(Lista* li, int cod, struct produto *p) {
 	if (li == NULL)
 		return 0;
 	int i = 0;
@@ -231,7 +230,21 @@ int remove_abaixo_de(Lista* li, float precoMinimo){
 	}
 	return k-li->qtd;
 }
-
-
-
-int mescla_listas(Lista* destino, Lista* origem);
+/*QUESTÃO 8*/
+int mescla_listas(Lista* destino, Lista* origem){
+	if(destino == NULL || origem == NULL)
+		return -1;
+	if(destino->qtd == MAX)
+		return -1;
+	long n = origem->qtd;
+	long m = destino->qtd;
+	int cont=0;
+	struct produto* temp;
+	for(int i=0; i < n && i < MAX; i++){
+		if(busca_lista_cod(destino, origem->dados[i].codigo, temp))
+			continue;
+		destino->dados[m+cont] = origem->dados[i];
+		cont++;
+	}
+	return cont;
+}

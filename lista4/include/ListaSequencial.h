@@ -19,3 +19,12 @@ int remove_lista_final(Lista* li);
 int tamanho_lista(Lista* li);
 int lista_cheia(Lista* li);
 int lista_vazia(Lista* li);
+// funções novas
+int lista_tem_espaco(Lista* li, int n);
+float soma_precos(Lista* li);
+int busca_por_nome(Lista* li, char *nome, struct produto *p);
+int insere_lista_decrescente(Lista* li, struct produto p);
+int remove_mais_caro(Lista* li, struct produto *removido);
+int conta_faixa_preco(Lista* li, float min, float max);
+int remove_abaixo_de(Lista* li, float precoMinimo);
+int mescla_listas(Lista* destino, Lista* origem);
