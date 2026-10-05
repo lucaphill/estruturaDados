@@ -1,0 +1,14 @@
+[
+{
+  "directory": "/home/luca/Documentos/estruturaDados/lista5/build",
+  "command": "/usr/bin/cc  -I/home/luca/Documentos/estruturaDados/lista5/include -std=gnu11 -o CMakeFiles/l5_run.dir/src/Main.c.o -c /home/luca/Documentos/estruturaDados/lista5/src/Main.c",
+  "file": "/home/luca/Documentos/estruturaDados/lista5/src/Main.c",
+  "output": "CMakeFiles/l5_run.dir/src/Main.c.o"
+},
+{
+  "directory": "/home/luca/Documentos/estruturaDados/lista5/build",
+  "command": "/usr/bin/cc  -I/home/luca/Documentos/estruturaDados/lista5/include -std=gnu11 -o CMakeFiles/l5_run.dir/src/ListaDinamica.c.o -c /home/luca/Documentos/estruturaDados/lista5/src/ListaDinamica.c",
+  "file": "/home/luca/Documentos/estruturaDados/lista5/src/ListaDinamica.c",
+  "output": "CMakeFiles/l5_run.dir/src/ListaDinamica.c.o"
+}
+]

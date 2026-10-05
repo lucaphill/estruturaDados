@@ -1,0 +1,1 @@
+/usr/bin/cc -Wl,--dependency-file=CMakeFiles/l5_run.dir/link.d CMakeFiles/l5_run.dir/src/Main.c.o CMakeFiles/l5_run.dir/src/ListaDinamica.c.o -o /home/luca/Documentos/estruturaDados/lista5/l5_run

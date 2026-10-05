@@ -1,0 +1,3 @@
+/home/luca/Documentos/estruturaDados/lista5/build/CMakeFiles/l5_run.dir
+/home/luca/Documentos/estruturaDados/lista5/build/CMakeFiles/edit_cache.dir
+/home/luca/Documentos/estruturaDados/lista5/build/CMakeFiles/rebuild_cache.dir
