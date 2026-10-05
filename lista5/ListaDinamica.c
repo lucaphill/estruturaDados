@@ -243,9 +243,8 @@ int tarefa_mais_urgente(ListaTarefas* li, struct tarefa *t){
 	if(li == NULL || *li == NULL)
 		return 0;
 	Elem* temp = *li;
-	int qtd = tamanho_lista(li);
 	*t = temp->dados;
-	for(int i=1; i < qtd; i++){
+	while(temp!=NULL){
 		if(temp->dados.prioridade < t->prioridade)
 			*t = temp->dados;
 		temp = temp->prox;
@@ -268,37 +267,47 @@ int busca_tarefa_desc(ListaTarefas* li, char *texto, struct tarefa *t){
 int insere_tarefa_final_prioridade(ListaTarefas* li, struct tarefa t){
 	if(li==NULL)
 		return 0;
-	Elem* no = malloc(sizeof(Elem));
+	Elem* no = (Elem*) malloc(sizeof(Elem));
+	if(no==NULL)
+		return 0;
+	no->dados = t;
+	no->prox = NULL;
 	if(*li==NULL){
 		*li = no;
-		no->prox = NULL;
 		return 1;
 	}
-	Elem* temp;
-	while(temp!=NULL && temp->prox->dados.prioridade <= t.prioridade){
+	Elem *ant=NULL, *temp=*li, *ultimo=NULL;
+	while(temp!=NULL){
+		if(temp->dados.prioridade == t.prioridade){
+			ultimo = temp;
+		}
+		ant = temp;
 		temp = temp->prox;
 	}
-	if(temp==NULL){
-		temp->prox = no;
-		no->prox = NULL;
+	if(ultimo==NULL){
+		ant->prox = no;
 		return 1;
 	}
-	no = temp->prox;
-	temp->prox = no;
+	no->prox = ultimo->prox;
+	ultimo->prox = no;
 	return 1;
 }
 // QUESTÃO 5
 int remove_tarefas_prioridade(ListaTarefas* li, int prioridade){
-	if(li==NULL || *li==NULL)
+	if(li==NULL)
+		return -1;
+	if(*li==NULL)
 		return 0;
 	int cont=0;
-	Elem *no = *li, *ant=NULL;
-	while(no->prox != NULL){
-		if(no->prox->dados.prioridade == prioridade){
-			no = no->prox->prox;
-			ant = ant->prox;
-			free(ant->prox);
-			ant->prox = no;
+	Elem *ant=NULL, *no = *li;
+
+	while(no != NULL){
+		if(no->dados.prioridade == prioridade){
+			Elem *dell = no;
+			no = no->prox;
+			if(ant==NULL) *li = no;
+			else ant->prox = no;
+			free(dell);
 			cont++;
 		}else{
 			ant = no;
@@ -310,45 +319,52 @@ int remove_tarefas_prioridade(ListaTarefas* li, int prioridade){
 // QUESTÃO 6
 int inverte_lista(ListaTarefas* li){
 	if(li==NULL)
-		return NULL;
-	Elem *no=*li, *prox=NULL, *ant=NULL;
-	prox = no->prox;
-	while(prox != NULL){
+		return 0;
+	if(*li==NULL)
+		return 1;
+	Elem *ant=NULL, *no=*li, *prox;
+	while(no != NULL){
+		prox = no->prox;
 		no->prox = ant;
 		ant = no;
 		no = prox;
-		prox = no->prox;
 	}
-	*li = prox;
+	*li = ant;
 	return 1;
 }
+// QUESTÃO 7
 int remove_tarefa_pos(ListaTarefas* li, int pos){
-	if(li==NULL || *li==NULL || pos < 0 || pos > tamanho_lista(li))
+	if(li==NULL || *li==NULL || pos <= 0 || pos > tamanho_lista(li))
 		return 0;
-	int cont=0;
-	Elem *no=*li, *ant;
-	for(cont=0; cont < pos; cont++){
-		no = no->prox;
-		ant = no;
+	Elem *no=*li, *ant=NULL;
+	if(pos==1){
+		*li = no->prox;
+		free(no);
+		return 1;
 	}
-	if(no==NULL)
-		return 0;
-	ant = no->prox;
+	for(int cont=1; cont < pos; cont++){
+		ant = no;
+		no = no->prox;
+	}
+	ant->prox = no->prox;
 	free(no);
 	return 1;
 }
+// QUESTÃO 8
 int mescla_tarefas(ListaTarefas* dst, ListaTarefas* src){
-	if(dst==NULL || src==NULL)
+	if(dst==NULL || src==NULL || dst==src)
 		return -1;
 	if(*src==NULL)
 		return 0;
-	Elem *p_dst = *dst;
-	while(p_dst->prox!=NULL)
-		p_dst = p_dst->prox;
-
 	int tam = tamanho_lista(src);
-	p_dst->prox = *src;
+	if(*dst==NULL)
+		*dst=*src;
+	else{
+		Elem *p_dst = *dst;
+		while(p_dst->prox!=NULL)
+			p_dst = p_dst->prox;
+		p_dst->prox = *src;
+	}
 	*src = NULL;
-
 	return tam;
 }
