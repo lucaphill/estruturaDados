@@ -14,6 +14,7 @@
 
 //#include <cstddef>
 #include <stdlib.h>
+#include <string.h>
 #include "ListaDinamica.h"
 
 /* Cada elemento guarda os dados e o endereco do proximo elemento.
@@ -250,13 +251,50 @@ int tarefa_mais_urgente(ListaTarefas* li, struct tarefa *t){
 			*t = temp->dados;
 	return 1;
 }
+// QUESTÃO 3
+int busca_tarefa_desc(ListaTarefas* li, char *texto, struct tarefa *t){
+	if(li==NULL || *li==NULL)
+		return 0;
+	Elem* temp = *li;
+	int qtd = tamanho_lista(li);
+	for(int i=0; i<qtd; i++){
+		if(strstr(temp->dados.descricao, texto)){
+			*t = temp->dados;
+			return 1;
+		}
+	}
+	return 0;
+}
+// QUESTÃO 4
+int insere_tarefa_final_prioridade(ListaTarefas* li, struct tarefa t){
+	if(li==NULL)
+		return 0;
+	Elem* no = malloc(sizeof(Elem));
+	if(*li==NULL){
+		*li = no;
+		no->prox = NULL;
+		return 1;
+	}
+	Elem* temp;
+	int qtd = tamanho_lista(li);
+	for(int i=0; i<qtd;i++){
+		if(temp->prox->dados.prioridade > t.prioridade)
+			break;
+		temp = temp->prox;
+	}
+	if(temp==NULL){
+		temp->prox = no;
+		no->prox = NULL;
+		return 1;
+	}
+	no = temp->prox;
+	temp->prox = no;
+	return 1;
+}
 
 
 
 
-
-int busca_tarefa_desc(ListaTarefas* li, char *texto, struct tarefa *t);
-int insere_tarefa_final_prioridade(ListaTarefas* li, struct tarefa t);
 int remove_tarefas_prioridade(ListaTarefas* li, int prioridade);
 int inverte_lista(ListaTarefas* li);
 int remove_tarefa_pos(ListaTarefas* li, int pos);
