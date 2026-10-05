@@ -238,7 +238,6 @@ int conta_tarefas_prioridade(ListaTarefas* li, int prioridade){
 	}
 	return cont;
 }
-
 // QUESTÃO 2
 int tarefa_mais_urgente(ListaTarefas* li, struct tarefa *t){
 	if(li == NULL || *li == NULL)
@@ -246,9 +245,11 @@ int tarefa_mais_urgente(ListaTarefas* li, struct tarefa *t){
 	Elem* temp = *li;
 	int qtd = tamanho_lista(li);
 	*t = temp->dados;
-	for(int i=1; i < qtd; i++)
+	for(int i=1; i < qtd; i++){
 		if(temp->dados.prioridade < t->prioridade)
 			*t = temp->dados;
+		temp = temp->prox;
+	}
 	return 1;
 }
 // QUESTÃO 3
@@ -256,14 +257,12 @@ int busca_tarefa_desc(ListaTarefas* li, char *texto, struct tarefa *t){
 	if(li==NULL || *li==NULL)
 		return 0;
 	Elem* temp = *li;
-	int qtd = tamanho_lista(li);
-	for(int i=0; i<qtd; i++){
-		if(strstr(temp->dados.descricao, texto)){
-			*t = temp->dados;
-			return 1;
-		}
-	}
-	return 0;
+	while(temp!=NULL && !strstr(temp->dados.descricao, texto))
+		temp = temp->prox;
+	if(temp==NULL)
+		return 0;
+	*t = temp->dados;
+	return 1;
 }
 // QUESTÃO 4
 int insere_tarefa_final_prioridade(ListaTarefas* li, struct tarefa t){
@@ -276,10 +275,7 @@ int insere_tarefa_final_prioridade(ListaTarefas* li, struct tarefa t){
 		return 1;
 	}
 	Elem* temp;
-	int qtd = tamanho_lista(li);
-	for(int i=0; i<qtd;i++){
-		if(temp->prox->dados.prioridade > t.prioridade)
-			break;
+	while(temp!=NULL && temp->prox->dados.prioridade <= t.prioridade){
 		temp = temp->prox;
 	}
 	if(temp==NULL){
@@ -291,11 +287,30 @@ int insere_tarefa_final_prioridade(ListaTarefas* li, struct tarefa t){
 	temp->prox = no;
 	return 1;
 }
+// QUESTÃO 5
+int remove_tarefas_prioridade(ListaTarefas* li, int prioridade){
+	if(li==NULL || *li==NULL)
+		return 0;
+	int cont=0;
+	Elem *no = *li, *ant=NULL;
+	while(no->prox != NULL){
+		if(no->prox->dados.prioridade == prioridade){
+			no = no->prox->prox;
+			ant = ant->prox;
+			free(ant->prox);
+			ant->prox = no;
+			cont++;
+		}else{
+			ant = no;
+			no = no->prox;
+		}
+	}
+	return cont;
+}
 
 
 
 
-int remove_tarefas_prioridade(ListaTarefas* li, int prioridade);
 int inverte_lista(ListaTarefas* li);
 int remove_tarefa_pos(ListaTarefas* li, int pos);
 int mescla_tarefas(ListaTarefas* dst, ListaTarefas* src);
