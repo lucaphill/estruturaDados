@@ -307,10 +307,27 @@ int remove_tarefas_prioridade(ListaTarefas* li, int prioridade){
 	}
 	return cont;
 }
+// QUESTÃO 6
+int inverte_lista(ListaTarefas* li){
+	if(li==NULL)
+		return NULL;
+	Elem *no=*li, *prox=NULL, *ant=NULL;
+	prox = no->prox;
+	while(prox != NULL){
+		no->prox = ant;
+		ant = no;
+		no = prox;
+		prox = no->prox;
+	}
+	*li = prox;
+	return 1;
+}
 
 
 
 
-int inverte_lista(ListaTarefas* li);
+
+
+
 int remove_tarefa_pos(ListaTarefas* li, int pos);
 int mescla_tarefas(ListaTarefas* dst, ListaTarefas* src);
