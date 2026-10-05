@@ -12,7 +12,7 @@
      convencao do repositorio.
    ============================================================ */
 
-#include <cstddef>
+//#include <cstddef>
 #include <stdlib.h>
 #include "ListaDinamica.h"
 
@@ -238,10 +238,23 @@ int conta_tarefas_prioridade(ListaTarefas* li, int prioridade){
 	return cont;
 }
 
+// QUESTÃO 2
+int tarefa_mais_urgente(ListaTarefas* li, struct tarefa *t){
+	if(li == NULL || *li == NULL)
+		return 0;
+	Elem* temp = *li;
+	int qtd = tamanho_lista(li);
+	*t = temp->dados;
+	for(int i=1; i < qtd; i++)
+		if(temp->dados.prioridade < t->prioridade)
+			*t = temp->dados;
+	return 1;
+}
 
 
 
-int tarefa_mais_urgente(ListaTarefas* li, struct tarefa *t);
+
+
 int busca_tarefa_desc(ListaTarefas* li, char *texto, struct tarefa *t);
 int insere_tarefa_final_prioridade(ListaTarefas* li, struct tarefa t);
 int remove_tarefas_prioridade(ListaTarefas* li, int prioridade);
