@@ -322,12 +322,33 @@ int inverte_lista(ListaTarefas* li){
 	*li = prox;
 	return 1;
 }
+int remove_tarefa_pos(ListaTarefas* li, int pos){
+	if(li==NULL || *li==NULL || pos < 0 || pos > tamanho_lista(li))
+		return 0;
+	int cont=0;
+	Elem *no=*li, *ant;
+	for(cont=0; cont < pos; cont++){
+		no = no->prox;
+		ant = no;
+	}
+	if(no==NULL)
+		return 0;
+	ant = no->prox;
+	free(no);
+	return 1;
+}
+int mescla_tarefas(ListaTarefas* dst, ListaTarefas* src){
+	if(dst==NULL || src==NULL)
+		return -1;
+	if(*src==NULL)
+		return 0;
+	Elem *p_dst = *dst;
+	while(p_dst->prox!=NULL)
+		p_dst = p_dst->prox;
 
+	int tam = tamanho_lista(src);
+	p_dst->prox = *src;
+	*src = NULL;
 
-
-
-
-
-
-int remove_tarefa_pos(ListaTarefas* li, int pos);
-int mescla_tarefas(ListaTarefas* dst, ListaTarefas* src);
+	return tam;
+}
