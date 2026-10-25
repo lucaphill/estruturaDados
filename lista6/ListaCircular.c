@@ -271,13 +271,24 @@ void imprime_lista(Lista* li){
 	if(li == NULL || (*li) == NULL)
 		return;
 	Elem *no = *li;
-	while(no->prox != (*li)){
+	do{
 		printf("%d ", no->dados.matricula);
 		no = no->prox;
-	}
+	}while(no->prox != (*li));
 }
 // QUESTÃO 2
-int maior_matricula(Lista* li, int *mat);
+int maior_matricula(Lista* li, int *mat){
+	if(li == NULL || (*li) == NULL)
+		return 0;
+	Elem *no = *li;
+	*mat = no->dados.matricula;
+	do{
+		if(no->dados.matricula > *mat)
+			*mat = no->dados.matricula;
+		no = no->prox;
+	}while(no->prox != (*li));
+	return 1;
+}
 int conta_aprovados(Lista* li);
 int busca_ciclica(Lista* li, int k, struct aluno *al);
 int remove_lista_pos(Lista* li, int pos);
