@@ -311,20 +311,47 @@ int conta_aprovados(Lista* li){
 }
 // QUESTÃO 4
 int busca_ciclica(Lista* li, int k, struct aluno *al){
-	if(li==NULL || (*li) == NULL)
+	if(li==NULL || (*li) == NULL || k <= 0)
 		return 0;
 	Elem *no = (*li);
-	if(k==1){
-		*al = no->dados;
-		return 1;
-	}
-	k = k % tamanho_lista(li); // otimiza um pouco para rodar só uma vez já que já vai fazer isso mesmo
+	k = (k-1) % tamanho_lista(li); // otimiza um pouco para rodar só uma vez já que já vai fazer isso mesmo
 	while(k--)
 		no = no->prox;
 	*al = no->dados;
 	return 1;
 }
-int remove_lista_pos(Lista* li, int pos);
-int rotaciona_lista(Lista* li, int k);
+// QUESTÃO 5
+int remove_lista_pos(Lista* li, int pos){
+	if(li == NULL || (*li) == NULL || pos < 1 || pos > tamanho_lista(li))
+		return 0;
+	Elem *no = (*li);
+	if(pos == 1)
+		return remove_lista_inicio(li);
+	pos = pos-2;
+	while(pos--)
+		no = no->prox;
+	Elem *temp = no->prox;
+	no->prox = temp->prox;
+	free(temp);
+	return 1;
+}
+// QUESTÃO 6
+/*
+ * 1. Essa função é O(k) já que não precisa percorrer toda a lista, apenas k vezes
+ * 2. Também seria O(n), mas daria bem mais trabalho, pq vc teria que ir até o final,
+ * fazer ele apontar para o inicio antigo, ir até o novo inicio, fazer (*li) apontar para ele,
+ * e finalmente ir até o anterior do novo inicio e colocar ele apontando para NULL.
+ * Como nenhuma dessas coisas precisa ser feita aninhada continua O(n);
+ */
+int rotaciona_lista(Lista* li, int k){
+	if(li==NULL || (*li)==NULL || k < 0)
+		return 0;
+	Elem *no = (*li);
+	while (k--) {
+		no = no->prox;
+	}
+	(*li) = no;
+	return 1;
+}
 int concatena_listas(Lista* li1, Lista* li2);
 int josephus(Lista* li, int k, int *sobrevivente);
