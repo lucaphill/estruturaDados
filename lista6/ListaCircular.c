@@ -289,7 +289,27 @@ int maior_matricula(Lista* li, int *mat){
 	}while(no->prox != (*li));
 	return 1;
 }
-int conta_aprovados(Lista* li);
+// QUESTÃO 3
+/*
+ * Primeiramente, estava faltando as verificações se a lista é valida, sem isso ele
+ * pode tentar acessar onde não deveria da memória com as operações com o *no
+ * O segundo erro é pq se a lista não é vazia, a condição do while nunca vai ser conpleta
+ * então a função vai ficar em loop infinito, claro que isso não é o ideal
+ */
+int conta_aprovados(Lista* li){
+	if(li == NULL || (*li)==NULL) // novo
+		return 0;
+	int cont = 0;
+	Elem *no = *li;
+	do{
+		float media = (no->dados.n1 + no->dados.n2 + no->dados.n3) / 3;
+		if(media >= 7.0)
+			cont++;
+		no = no->prox;
+	}while(no != (*li)); // novo
+	return cont;
+}
+
 int busca_ciclica(Lista* li, int k, struct aluno *al);
 int remove_lista_pos(Lista* li, int pos);
 int rotaciona_lista(Lista* li, int k);
