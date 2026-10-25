@@ -309,8 +309,21 @@ int conta_aprovados(Lista* li){
 	}while(no != (*li)); // novo
 	return cont;
 }
-
-int busca_ciclica(Lista* li, int k, struct aluno *al);
+// QUESTÃO 4
+int busca_ciclica(Lista* li, int k, struct aluno *al){
+	if(li==NULL || (*li) == NULL)
+		return 0;
+	Elem *no = (*li);
+	if(k==1){
+		*al = no->dados;
+		return 1;
+	}
+	k = k % tamanho_lista(li); // otimiza um pouco para rodar só uma vez já que já vai fazer isso mesmo
+	while(k--)
+		no = no->prox;
+	*al = no->dados;
+	return 1;
+}
 int remove_lista_pos(Lista* li, int pos);
 int rotaciona_lista(Lista* li, int k);
 int concatena_listas(Lista* li1, Lista* li2);
