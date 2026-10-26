@@ -378,4 +378,29 @@ int concatena_listas(Lista* li1, Lista* li2){
 	(*li2) = NULL;
 	return 1;
 }
-int josephus(Lista* li, int k, int *sobrevivente);
+// QUESTÃO 8
+int josephus(Lista* li, int k, int *sobrevivente){
+	if(li == NULL || (*li) == NULL || k <= 0 || sobrevivente == NULL)
+		return 0;
+	/* caso de um unico elemento: nao entra no laco de eliminacao */
+	if((*li)->prox == (*li)){
+		*sobrevivente = (*li)->dados.matricula;
+		free(*li);
+		*li = NULL;
+		return 1;
+	}
+	Elem *ant = *li;
+	while(ant->prox != (*li))
+		ant = ant->prox;
+	while(ant->prox != ant){
+		for(int i = 0; i < k - 1; i++)
+			ant = ant->prox;
+		Elem *alvo = ant->prox;
+		ant->prox = alvo->prox;
+		free(alvo);
+	}
+	*sobrevivente = ant->dados.matricula;
+	free(ant);
+	*li = NULL;
+	return 1;
+}
