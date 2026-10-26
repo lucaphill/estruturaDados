@@ -353,5 +353,29 @@ int rotaciona_lista(Lista* li, int k){
 	(*li) = no;
 	return 1;
 }
-int concatena_listas(Lista* li1, Lista* li2);
+// QUESTÃO 7
+/*
+ * Se o final da lista estivesse em (*li) issso seria O(1) pq não precisaria interar sobre nada para achar o final
+ */
+int concatena_listas(Lista* li1, Lista* li2){
+	if(li1==NULL||li2==NULL)
+		return 0;
+	if((*li2)==NULL)
+		return 1;
+	if((*li1)==NULL){
+		(*li1) = (*li2);
+		(*li2) = NULL;
+		return 1;
+	}
+	Elem *no1=(*li1);
+	Elem *no2=(*li2);
+	while(no1->prox != (*li1))
+		no1 = no1->prox;
+	while(no2 != (*li2))
+		no2->prox = no2->prox;
+	no1->prox = (*li2);
+	no2->prox = (*li1);
+	(*li2) = NULL;
+	return 1;
+}
 int josephus(Lista* li, int k, int *sobrevivente);
