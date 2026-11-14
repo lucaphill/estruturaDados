@@ -368,7 +368,7 @@ int eh_palindromo(Lista* li){
 		r = r->prox;
 	if(l == r) // só tem 1 elemento
 		return 1;
-	while(l != r){
+	while(l != r && r->prox != l){
 		if(l->dados.matricula != r->dados.matricula)
 			return 0;
 		l = l->prox;
