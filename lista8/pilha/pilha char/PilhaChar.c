@@ -82,10 +82,10 @@ int Pilha_vazia(Pilha* pi) {
 int insere_Pilha(Pilha* pi, char c) {
     if (pi == NULL)
         return 0;
-    if (Pilha_cheia(pi))                  /* teste de estouro */
+    if (Pilha_cheia(pi))                 /* teste de estouro */
         return 0;
     pi->dados[pi->qtd] = c;              /* qtd e a primeira posicao livre */
-    pi->qtd++;                            /* o novo elemento passa a ser o topo */
+    pi->qtd++;                           /* o novo elemento passa a ser o topo */
     return 1;
 }
 

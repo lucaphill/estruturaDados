@@ -13,7 +13,6 @@
    ant, dados e prox sao visiveis.
    ============================================================ */
 
-#include <memory>
 #include <stdio.h>
 #include <stdlib.h>
 #include "ListaDinDupla.h"
@@ -240,9 +239,9 @@ void imprime_lista_inversa(Lista* li){
 }
 // 2 QUESTÃO
 int lista_consistente(Lista* li){
-	if     (li==NULL)
+	if(li==NULL)
 		return 0;
-	if  ((*li)==NULL)
+	if((*li)==NULL)
 		return 1;
 	Elem* aux = (*li);
 	if(aux->ant!=NULL)
@@ -262,7 +261,7 @@ int remove_listaa(Lista* li, int mat){
 	if((*li) == NULL) return 0;
 	Elem* no = (*li);
 	if(no->dados.matricula == mat){
-		no->prox->ant = no->ant;
+		no->prox->ant = no->ant; // coloca NULL no prox->ant
 		(*li) = no->prox;
 		free(no);
 		return 1;
@@ -270,11 +269,10 @@ int remove_listaa(Lista* li, int mat){
 	while(no != NULL && no->dados.matricula != mat)
 		no = no->prox;
 	if(no == NULL) return 0;
-
 	if(no->ant  != NULL)
-		no->ant->prox = no->prox;
+		no->ant->prox = no->prox; // liga o anterior se não for o primeiro
 	if(no->prox != NULL){
-		no->prox->ant =  no->ant;
+		no->prox->ant =  no->ant; // liga o próximo, se não for o último
 	}
 	free(no);
 	return 1;
@@ -285,7 +283,8 @@ int remove_lista_pos(Lista* li, int pos){
 		return 0;
 	Elem* aux = (*li);
 	pos--;
-	while(aux != NULL && pos--)
+	while(aux != NULL && pos--) // quando coloca pos-- em um while, ele roda pos vezes certinho,
+//por isso nesse caso como foi passado o pos começando em 1, precisava do -- (a gente já começa no primeiro, se avançar 2 vezes vai pro terceiro n segundo)
 		aux = aux->prox;
 	// preparando os ponteiros
 	if(aux == NULL)
@@ -331,12 +330,16 @@ int remove_todos(Lista* li, int mat){
 			Elem* lixo = aux;
 			if(aux->ant == NULL)
 				(*li) = aux->prox;
-			aux->ant->prox = aux->prox;
+			else
+				aux->ant->prox = aux->prox;
 			if(aux->prox != NULL)
 				aux->prox->ant = aux->ant;
+
+			aux = aux->prox;
 			free(lixo);
 			qtd++;
 		}
+		else aux = aux->prox;
 	}
 	return qtd;
 }
@@ -345,7 +348,7 @@ void inverte_lista(Lista* li){
 	if(li == NULL || (*li) == NULL)
 		return;
 	Elem* aux = (*li);
-	while(aux->prox != NULL){
+	while(aux->prox!=NULL){
 		Elem* temp = aux->ant;
 		aux->ant = aux->prox;
 		aux->prox = temp;

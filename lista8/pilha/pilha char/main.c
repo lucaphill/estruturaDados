@@ -13,7 +13,7 @@ int verifica_delimitadores(const char *exrp){
 	if(pi == NULL)
 		return 0;
 
-	int i=0;
+	int i=0, errado=0;
 	char aux=' ';
 
 	while(exrp[i] != '\0'){
@@ -21,13 +21,13 @@ int verifica_delimitadores(const char *exrp){
 			insere_Pilha(pi, '(');
 		else if(exrp[i] == ')'){
 			if(tamanho_Pilha(pi) < 1){
-				libera_Pilha(pi);
-				return 0;
+				errado=1;
+				break;
 			}
 			consulta_topo_Pilha(pi, &aux);
 			if(aux != '('){
-				libera_Pilha(pi);
-				return 0;
+				errado=1;
+				break;
 			}
 			remove_Pilha(pi);
 		}
@@ -36,13 +36,13 @@ int verifica_delimitadores(const char *exrp){
 			insere_Pilha(pi, '[');
 		else if(exrp[i] == ']'){
 			if(tamanho_Pilha(pi) < 1){
-				libera_Pilha(pi);
-				return 0;
+				errado=1;
+				break;
 			}
 			consulta_topo_Pilha(pi, &aux);
 			if(aux != '['){
-				libera_Pilha(pi);
-				return 0;
+				errado=1;
+				break;
 			}
 			remove_Pilha(pi);
 		}
@@ -51,19 +51,22 @@ int verifica_delimitadores(const char *exrp){
 			insere_Pilha(pi, '{');
 		else if(exrp[i] == '}'){
 			if(tamanho_Pilha(pi) < 1){
-				libera_Pilha(pi);
-				return 0;
+				errado=1;
+				break;
 			}
 			consulta_topo_Pilha(pi, &aux);
 			if(aux != '{'){
-				libera_Pilha(pi);
-				return 0;
+				errado=1;
+				break;
 			}
 			remove_Pilha(pi);
 		}
 		i++;
 	}
-	if(tamanho_Pilha(pi) == 0){
+	if(errado==1){
+		libera_Pilha(pi);
+		return 0;
+	}else if(tamanho_Pilha(pi) == 0){
 		libera_Pilha(pi);
 		return 1;
 	}else {
@@ -80,10 +83,10 @@ int verifica_delimitadores(const char *exrp){
 
 int main() {
 	char certo[]   = "()(){}{[]}";
-	char errado[]  = "(()";
+	char errado[]  = "([)]";
 	char errado2[] = "())({}";
 	printf("()(){}{[]} %d\n", verifica_delimitadores(certo));
-	printf("(()        %d\n", verifica_delimitadores(errado));
+	printf("([)]       %d\n", verifica_delimitadores(errado));
 	printf("())({}     %d\n", verifica_delimitadores(errado2));
 
 	return 0;

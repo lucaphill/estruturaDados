@@ -145,8 +145,8 @@ int sequencia_valida(const char *s){
  * momento ficar negativo ela quebra;
  *
  * QUESTÃO 5 -------------------
- * Ta em pilha char
+ * Ta em pilha char (no .c e na main)
  *
  * QUESTÃO 6 -------------------
- *
+ * Ta em pilha dupla
  */
