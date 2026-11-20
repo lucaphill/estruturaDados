@@ -177,3 +177,5 @@ int fura_Fila(Fila* fi, struct aluno al){
  * ela é O(n*k), na implementação que eu fiz ficou O(n*(k-1)mod n) mas enfim se
  * fosse com lista sequêncial estática séria O(n^2*k) já que remover no inicio é O(n)
  */
+
+vamos fazer um arquivo de teste apenas para treinar exatamente o que eu deveria estar fazendo no modo vim
